@@ -37,7 +37,7 @@ Game.prototype.update = function()
                 this.die[i].textContent = this.die[i].value; 
             }
         }
-        if (Date.now() > this.timeStarted + 500) // run for .5 seconds 
+        if (Date.now() > this.timeStarted + 1000) // run for .5 seconds 
         {
             this.stopped = true; 
             for(var i=0; i<3; i++)

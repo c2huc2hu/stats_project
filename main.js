@@ -76,7 +76,7 @@ $('#startroll').click(function() {
       entry_1339010775: Math.max(outcome1.streak, outcome2.streak),
       entry_2045191426: results.responseTime
     }});
-  g.roll.bind(g)
+  g.roll(); 
   return false;
 })
 
