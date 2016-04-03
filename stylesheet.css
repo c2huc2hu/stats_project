@@ -70,3 +70,15 @@ h2 {
 	font-family: Garamond;
 	color: #3333cc;
 }
+
+h3 {
+	font-family: Garamond;
+	color: blue;
+	text-decoration: underline;
+}
+
+h4 {
+	font-family: Lucida Sans Unicode;
+	color: black;
+	font-size: 0.5em;
+}
