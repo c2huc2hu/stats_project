@@ -1,14 +1,17 @@
 OUTCOMES = ["\u2264", "\u2265", "="]
 
-var Outcome = function(game, outcomediv) 
+var Outcome = function(game, outcomediv, historydiv) 
 {
     this.game = game; 
     this.outcomediv = outcomediv; 
-    outcomediv.setAttribute("style", "width:200px; height:200px; border-style:solid; text-align: center; line-height:200px; font-size:50px")
+    outcomediv.setAttribute("style", "width:200px; height:200px; border-style:solid; text-align: center; line-height:50px; font-size:40px; white-space:pre-wrap")
     this.outcomeType = "UNDEFINED"; 
     this.outcome = 0; 
     this.checkedWin = false; // has checked whether the player has won the bet 
     this.bet = 0; 
+    this.streak = 0; 
+    this.history = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]; 
+    this.historydiv = historydiv;
 }
 
 // Call this every tick 
@@ -17,11 +20,13 @@ Outcome.prototype.update = function()
     var sum = 0; 
     var winning = false; 
     for (var i=0; i<this.game.num; i++)
+    {
         if (this.game.type == "die")
             sum += this.game.die[i].value; // taken from gametype.js. yay globals 
         else
             console.log("coins not implemented ")
             //sum += coins[i]
+    }
        
     switch(this.outcomeType)
     {
@@ -36,31 +41,46 @@ Outcome.prototype.update = function()
             break; 
         default:
             winning = true; 
+            break; 
     }
             
     if (winning)
+    {
         this.outcomediv.style.background = "#00FF00"; 
+    }
     else
+    {
         this.outcomediv.style.background = "#FF0000"; 
+    }
     
     if (this.game.stopped)
     {
         // check whether player has won 
-        if (winning && !this.checkedWin)
+        if (!this.checkedWin)
         {
-            this.checkedWin = true; 
-            this.game.addMoney(this.bet * 2); // add bet to the player's money. 
-        }
-        else if(this.checkedWin)
-        {
+            if (winning)
+            {
+                this.game.addMoney(this.bet * 2); // add bet to the player's money. 
+                this.streak += 1; 
+                this.history = ["Won; " + sum + " " + this.outcomeType + this.outcome + "\n"].concat(this.history.slice(0, -1)); 
+            }
+            else
+            {
+                this.streak = 0; 
+                this.history = ["Lost; " + sum + " " + this.outcomeType + this.outcome + "\n"].concat(this.history.slice(0, -1));
+            }
             this.bet = 0; 
+            this.checkedWin = true; 
         }
+        
+        this.historydiv.textContent = "Streak: " + this.streak + "\n\n" + this.history.join(""); 
     }
     else
     {
         this.checkedWin = false; // roll has started 
     }
-
+    
+    this.outcomediv.textContent = "Sum " + this.outcomeType + " " + this.outcome + "\n" + "Bet: " + this.bet; 
 }
 
 // Call this once, the first time the outcome is being generated 

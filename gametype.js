@@ -1,5 +1,3 @@
-    // var gamediv = document.getElementById("gamediv"); 
-
 var Game = function(gamediv) 
 {
     this.num = 0; 
@@ -9,6 +7,8 @@ var Game = function(gamediv)
     this.timeStarted = Date.now(); 
     this.gamediv = gamediv; 
     this.money = 100; 
+    this.timeStopped = Date.now()
+    this.seed = 1; 
     
     for(var i=0; i<3; i++)
     {
@@ -17,6 +17,11 @@ var Game = function(gamediv)
         this.die[i].style.left = "" + (i * 60 + 10) + "px"; // so this actually arranges the elements in a diagonal line, not beside each other, but it's a feature, not a bug. 
         this.die[i].style.top = "" + (i * 5 + 10) + "px";
     }
+}
+
+Game.prototype.random = function() {
+    var x = Math.sin(this.seed++) * 10000;
+    return x - Math.floor(x);
 }
 
 // called every tick 
@@ -35,12 +40,18 @@ Game.prototype.update = function()
         if (Date.now() > this.timeStarted + 500) // run for .5 seconds 
         {
             this.stopped = true; 
+            for(var i=0; i<3; i++)
+            {
+                this.die[i].value = Math.ceil(this.random() * 6); 
+                this.die[i].textContent = this.die[i].value; 
+            }
+            this.timeStopped = Date.now(); 
         }
     }
 }
 
 // initially draws dice
-Game.prototype.setDice = function(numDice)
+Game.prototype.setDice = function(numDice, s)
 {
     this.num = numDice; 
     this.type = "die"; 
@@ -57,6 +68,7 @@ Game.prototype.setDice = function(numDice)
         this.die[i].textContent = this.die[i].value; 
         this.gamediv.appendChild(this.die[i]); 
     }
+    this.seed = s
 }
 
 // initially draws coins
@@ -69,11 +81,10 @@ Game.prototype.roll = function()
 {
     this.stopped = false; 
     this.timeStarted = Date.now(); 
-    console.log("rolling", Game.prototype)
 }
 
 Game.prototype.addMoney = function(amount)
 {
     this.money += amount; 
-    document.getElementById("money").textContent = "$" + this.money; 
+    document.getElementById("money").textContent = "Balance: $" + this.money; 
 }
