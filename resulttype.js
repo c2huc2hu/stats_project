@@ -10,7 +10,7 @@ var Outcome = function(game, outcomediv, historydiv)
     this.checkedWin = false; // has checked whether the player has won the bet 
     this.bet = 0; 
     this.streak = 0; 
-    this.history = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]; 
+    this.history = ["", "", "", "", "", "", "", ""]; 
     this.historydiv = historydiv;
 }
 
