@@ -12,6 +12,7 @@ var Outcome = function(game, outcomediv, historydiv)
     this.streak = 0; 
     this.history = ["", "", "", "", "", "", "", ""]; 
     this.historydiv = historydiv;
+    this.numRolls = 0; // hack solution for our purposes
 }
 
 // Call this every tick 
@@ -71,6 +72,12 @@ Outcome.prototype.update = function()
             }
             this.bet = 0; 
             this.checkedWin = true; 
+            this.numRolls++; 
+            if (this.numRolls == 50)
+            {
+                alert("Note that the outcome has changed!");
+                this.outcome = 9; 
+            }
         }
         
         this.historydiv.textContent = "Streak: " + this.streak + "\n\n" + this.history.join(""); 

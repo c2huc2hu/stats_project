@@ -71,12 +71,6 @@ Game.prototype.setDice = function(numDice, s)
     this.seed = s
 }
 
-// initially draws coins
-function drawCoins(ctx, numCoins)
-{
-    
-}
-
 Game.prototype.roll = function()
 {
     this.stopped = false; 

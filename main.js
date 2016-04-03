@@ -79,7 +79,3 @@ $('#startroll').click(function() {
   g.roll(); 
   return false;
 })
-
-
-//document.getElementById('startroll').onclick = sendDataAndRoll; 
-
