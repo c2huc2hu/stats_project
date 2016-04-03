@@ -1,0 +1,72 @@
+.outcome {
+	border: 5px;
+}
+
+#money {
+	text-align: center;
+	line-height: 50px;
+	margin-left: 165px;
+}
+
+#gamediv {
+	margin-left: 100px;
+	line-height: 200px;
+}
+
+#startroll {
+	margin-left: 165px;
+	background-color: #0066ff;
+	color: white;
+	border: 10px, solid, white;
+}
+
+#startroll:hover {
+	background-color: #0047b3;
+}
+
+#startroll:focus {
+	outline: 0;
+	box-shadow: none;
+}
+
+#bet {
+	color: #000000;
+}
+#bet:hover {
+	color: #ffffff;
+}
+
+#bet:focus {
+	outline: 0;
+	box-shadow: none;
+}
+
+/*
+#bet:active {
+	opacity: 0.9;
+}
+*/
+
+#betnot {
+	color: #000000;
+}
+
+#betnot:hover {
+	color: #ffffff;
+}
+
+#betnot:focus {
+	outline: 0;
+	box-shadow: none;
+}
+
+h1 {
+	font-family: Vivaldi;
+	color: black;
+	font-weight: bold;
+}
+
+h2 {
+	font-family: Garamond;
+	color: #3333cc;
+}
