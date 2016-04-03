@@ -1,0 +1,2 @@
+// globals 
+nextRoll = 0; 
