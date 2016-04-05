@@ -82,9 +82,9 @@ Outcome.prototype.update = function()
             }
             else if (this.numRolls == 80 && winning)
             {
-                alert("Thanks for taking part in our study. Please fill in the form at the bottom of the page before you quit. ")
+                alert("Thanks for taking part in our study. Please fill in the form at the bottom of the page before you quit. You'll need to copy your session ID. Thanks!")
                 e = document.getElementById("end"); 
-                e.innerHTML = "Session ID: " + results.sessionID + "\n";  
+                e.innerHTML = "Session ID (MAKE SURE YOU COPY THIS): " + results.sessionID + "\n";  
                 e.innerHTML += "<a href=\"https://docs.google.com/forms/d/1tf7PAOVNth8yp2VQ-ubKpTCFvM7RklD9KJ4oicPtmts/edit?usp=drive_web\">Please fill in this form before you quit!</a>"; 
             }
         }
