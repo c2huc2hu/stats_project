@@ -66,9 +66,23 @@ document.getElementById('betnot').onclick = function() {
 
 $('#startroll').click(function() {
   console.log("Submitted. Just ignore the error messages.");
+  
+  if (sessionID % 3 == 0)
+  {
+      url = 'https://docs.google.com/forms/d/1iWraHfValU3pWwduBcgY1ylFycK09SC94rvlFDzpY-A/formResponse' 
+  }
+  else if (sessionID % 3 == 1)
+  {
+      url = 'https://docs.google.com/forms/d/166_whCzsiozwh6GGmiQNOufxtgOJz1nxUhL55UDDHVQ/formResponse'
+  }
+  else if (sessionID % 3 == 2)
+  {
+      url = 'https://docs.google.com/forms/d/1jqKHvVX7T2jn3uGml9qAkbgAw8q8wELYRT0xuscdcH4/formResponse'
+  }
+
   $.ajax({ 
-  	type: 'POST',
-    url: 'https://docs.google.com/forms/d/166_whCzsiozwh6GGmiQNOufxtgOJz1nxUhL55UDDHVQ/formResponse',
+    type: 'POST',
+    url: url,
     data: {
       entry_1922161615: results.sessionID,
       entry_2059440561: results.bet,
@@ -76,6 +90,7 @@ $('#startroll').click(function() {
       entry_1339010775: Math.max(outcome1.streak, outcome2.streak),
       entry_2045191426: results.responseTime
     }});
+
   g.roll(); 
   return false;
 })
