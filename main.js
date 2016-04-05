@@ -67,17 +67,25 @@ document.getElementById('betnot').onclick = function() {
 $('#startroll').click(function() {
   console.log("Submitted. Just ignore the error messages.");
   
-  if (sessionID % 3 == 0)
+  if (sessionID % 5 == 0)
   {
       url = 'https://docs.google.com/forms/d/1iWraHfValU3pWwduBcgY1ylFycK09SC94rvlFDzpY-A/formResponse' 
   }
-  else if (sessionID % 3 == 1)
+  else if (sessionID % 5 == 1)
   {
       url = 'https://docs.google.com/forms/d/166_whCzsiozwh6GGmiQNOufxtgOJz1nxUhL55UDDHVQ/formResponse'
   }
-  else if (sessionID % 3 == 2)
+  else if (sessionID % 5 == 2)
   {
       url = 'https://docs.google.com/forms/d/1jqKHvVX7T2jn3uGml9qAkbgAw8q8wELYRT0xuscdcH4/formResponse'
+  }
+  else if (sessionID % 5 == 3)
+  {
+      url = 'https://docs.google.com/forms/d/1cBxMc1lU3YN8BTjCuSo03aUfwPp9kOgo0aWpn6-JCVE/formResponse'
+  }
+  else if (sessionID % 5 == 4)    
+  {
+      url = 'https://docs.google.com/forms/d/1KwStP7UHUMb3msHCyhRmSUn7U1rIgHTLY948TGZM76I/formResponse'
   }
 
   $.ajax({ 
