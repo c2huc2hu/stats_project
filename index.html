@@ -5,18 +5,27 @@
 <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 <table> 
     <tr>
-		<td colspan="4"> <div text="Balance" id="money" style="width:80px; height:50px; border:solid"> </div> </td> 
+		<!--balace box-->
+		<td colspan="4"> <div text="Balance" id="money" style="width:250px; height:50px; border:solid"> </div> </td> 
 	</tr>
 	<tr> 
-        <td colspan="4"> <div id="gamediv" style="width:200px; height:200px; border:solid"> </div> </td> 
+		<!--box with the die-->
+        <td> <div id="streak1" style="font-size:40px"> </div> 
+        <td colspan="2"> <div id="gamediv" style="width:200px; height:200px; border:solid"> </div> </td> 
+        <td> <div id="streak2" style="font-size:40px"> </div> 
     </tr> 
     <tr>
-        <td class="history" id="history1" rowspan=2 style="width:200px; height:200px; border:solid; white-space:pre; vertical-align:top; text-align:center; font-size:20">  </td>     
+		<!--streak box on left-->
+        <td class="history" id="history1" rowspan=2 style="width:200px; height:180px; border:solid; white-space:pre; vertical-align:top; text-align:center; font-size:20">  </td>
+		<!--option box on left-->
         <td> <button type="button" class="outcome" id="bet" style="width:200px; height:200px; border:solid"> Roll! </button> </td> 
-        <td> <button type="button" class="outcome" id="betnot" style="width:200px; height:200px; border:solid"> Roll! </button> </td> 
+		<!--option box on right-->
+        <td> <button type="button" class="outcome" id="betnot" style="width:200px; height:200px; border:solid"> Roll! </button> </td>
+		<!--streak box on right-->
         <td class="history" id="history2" rowspan=2 style="width:200px; height:200px; border:solid; white-space:pre; vertical-align:top; text-align:center; font-size:20"> </td> 
     </tr> 
     <tr> 
+		<!--roll button-->
         <td colspan="2"> <button type="button" id="startroll" style="width:80px; height:50px; border:solid"> Roll! </button> </td> 
     </tr> 
 </table> 

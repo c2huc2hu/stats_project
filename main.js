@@ -8,8 +8,8 @@ var results = {sessionID:sessionID, responseTime:0, bet:0, amount:0};
 function initialize()
 {
     g = new Game(document.getElementById("gamediv")); 
-    outcome1 = new Outcome(g, document.getElementById("bet"), document.getElementById("history1")); 
-    outcome2 = new Outcome(g, document.getElementById("betnot"), document.getElementById("history2")); 
+    outcome1 = new Outcome(g, document.getElementById("bet"), document.getElementById("history1"), document.getElementById("streak1")); 
+    outcome2 = new Outcome(g, document.getElementById("betnot"), document.getElementById("history2"), document.getElementById("streak2")); 
     setInterval(update, 10); 
     
     g.setDice(3, 5); 

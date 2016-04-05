@@ -1,6 +1,6 @@
 OUTCOMES = ["\u2264", "\u2265", "="]
 
-var Outcome = function(game, outcomediv, historydiv) 
+var Outcome = function(game, outcomediv, historydiv, streakdiv) 
 {
     this.game = game; 
     this.outcomediv = outcomediv; 
@@ -12,6 +12,7 @@ var Outcome = function(game, outcomediv, historydiv)
     this.streak = 0; 
     this.history = ["", "", "", "", "", "", "", ""]; 
     this.historydiv = historydiv;
+    this.streakdiv = streakdiv; 
     this.numRolls = 0; // hack solution for our purposes
 }
 
@@ -80,7 +81,8 @@ Outcome.prototype.update = function()
             }
         }
         
-        this.historydiv.textContent = "Streak: " + this.streak + "\n\n" + this.history.join(""); 
+        this.streakdiv.textContent = "Streak: " + this.streak
+        this.historydiv.textContent = this.history.join(""); 
     }
     else
     {
