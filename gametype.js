@@ -2,7 +2,7 @@ var Game = function(gamediv)
 {
     this.num = 0; 
     this.type = "none"; 
-    this.stopped = false; 
+    this.stopped = true; 
     this.die = [null, null, null]; 
     this.timeStarted = Date.now(); 
     this.gamediv = gamediv; 
@@ -37,7 +37,7 @@ Game.prototype.update = function()
                 this.die[i].textContent = this.die[i].value; 
             }
         }
-        if (Date.now() > this.timeStarted + 1000) // run for .5 seconds 
+        if (Date.now() > this.timeStarted + 500) // run for .5 seconds 
         {
             this.stopped = true; 
             for(var i=0; i<3; i++)

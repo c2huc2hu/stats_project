@@ -1,3 +1,7 @@
+td {
+    font-family: Verdana, sans-serif;
+}
+
 .outcome {
 	border: 5px;
 }
@@ -5,23 +9,28 @@
 #money {
 	text-align: center;
 	line-height: 50px;
-	margin-left: 165px;
+	margin-left: 285px;
+	font-weight: bold;
+	font-size: 1.8em;
 }
 
 #gamediv {
-	margin-left: 100px;
+	margin-left: 105px;
 	line-height: 200px;
 }
 
 #startroll {
 	margin-left: 165px;
-	background-color: #0066ff;
-	color: white;
-	border: 10px, solid, white;
+	background-color: #66a3ff;
+	color: black;
+	border: none;
+	font-size: 1.5em;
+	font-family: Verdana, sans-serif;
 }
 
 #startroll:hover {
-	background-color: #0047b3;
+	background-color: #0052cc;
+	color: white;
 }
 
 #startroll:focus {
@@ -32,6 +41,7 @@
 #bet {
 	color: #000000;
 }
+
 #bet:hover {
 	color: #ffffff;
 }
@@ -40,12 +50,6 @@
 	outline: 0;
 	box-shadow: none;
 }
-
-/*
-#bet:active {
-	opacity: 0.9;
-}
-*/
 
 #betnot {
 	color: #000000;
@@ -61,36 +65,50 @@
 }
 
 h1 {
-	font-family: Vivaldi;
+	font-family: Vivaldi, serif;
 	color: black;
 	font-weight: bold;
 	font-size: 3.0em;
 }
 
 h2 {
-	font-family: Garamond;
-	color: #3333cc;
+	font-family: Verdana, sans-serif;
+	color: black;
 	font-size: 1.0em;
+	font-weight: lighter;
 }
 
 h3 {
-	font-family: Garamond;
-	color: blue;
+	font-family: Verdana, sans-serif;
+	color: black;
 	text-decoration: underline;
-	font-size: 3.0em;
+	font-size: 2.5em;
 }
 
 h4 {
-	font-family: Lucida Sans Unicode;
+	font-family: Verdana, sans-serif;
 	color: black;
 	font-size: 1.0em;
+	font-weight: lighter;
 }
 
 #page1 {
 	margin-left: 650px;
 	margin-top: 25px;
+	
+}
+
+#page1:hover {
+	color: white;
+	background-color: #909090;
 }
 
 #instructions_page {
 	margin-left: 395px;
+	color: black;
+}
+
+#instructions_page:hover {
+	color: white;
+	background-color: #909090;
 }

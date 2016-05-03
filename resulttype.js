@@ -1,17 +1,18 @@
 OUTCOMES = ["\u2264", "\u2265", "="]
 
-var Outcome = function(game, outcomediv, historydiv) 
+var Outcome = function(game, outcomediv, historydiv, streakdiv) 
 {
     this.game = game; 
     this.outcomediv = outcomediv; 
     outcomediv.setAttribute("style", "width:200px; height:200px; border-style:solid; text-align: center; line-height:50px; font-size:40px; white-space:pre-wrap")
     this.outcomeType = "UNDEFINED"; 
     this.outcome = 0; 
-    this.checkedWin = false; // has checked whether the player has won the bet 
+    this.checkedWin = true; // has checked whether the player has won the bet 
     this.bet = 0; 
     this.streak = 0; 
     this.history = ["", "", "", "", "", "", "", ""]; 
     this.historydiv = historydiv;
+    this.streakdiv = streakdiv; 
     this.numRolls = 0; // hack solution for our purposes
 }
 
@@ -73,14 +74,23 @@ Outcome.prototype.update = function()
             this.bet = 0; 
             this.checkedWin = true; 
             this.numRolls++; 
-            if (this.numRolls == 50)
+
+            if (this.numRolls == 40 && winning)
             {
                 alert("Note that the outcome has changed!");
-                this.outcome = 9; 
+                this.outcome = 8; 
+            }
+            else if (this.numRolls == 80 && winning)
+            {
+                alert("Thanks for taking part in our study. Please fill in the form at the bottom of the page before you quit. You'll need to copy your session ID. Thanks!")
+                e = document.getElementById("end"); 
+                e.innerHTML = "Session ID (MAKE SURE YOU COPY THIS): " + results.sessionID + "\n";  
+                e.innerHTML += "<a href=\"https://docs.google.com/forms/d/1tf7PAOVNth8yp2VQ-ubKpTCFvM7RklD9KJ4oicPtmts/edit?usp=drive_web\">Please fill in this form before you quit!</a>"; 
             }
         }
         
-        this.historydiv.textContent = "Streak: " + this.streak + "\n\n" + this.history.join(""); 
+        this.streakdiv.textContent = "Streak: " + this.streak
+        this.historydiv.textContent = this.history.join(""); 
     }
     else
     {
